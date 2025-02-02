@@ -6,4 +6,4 @@ It includes:
 - Hosted on **GitHub Pages**.
 
 ## Live Demo:
-[Click here to view the website](https://github.com/Sruthi1623/SET08101.git)
+[Click here to view the website](https://sruthi1623.github.io/SET08101/)
