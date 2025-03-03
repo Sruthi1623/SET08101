@@ -1,0 +1,17 @@
+body {
+    background-image: url(High_BGI.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+h1 {
+    font-family: 'Englebert';
+    font-size: 85px;
+}
+
+p {
+    font-family: 'Schibsted Grotesk';
+    font-size: 22px;
+}

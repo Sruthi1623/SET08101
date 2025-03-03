@@ -7,3 +7,5 @@ It includes:
 
 ## Live Demo:
 [Click here to view the website](https://sruthi1623.github.io/SET08101/)
+
+background: radial-gradient(circle at center, #6B1DC5, #1D2DC5, #0D0D0D);
