@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> Double Encryption</title>
+  <link rel="stylesheet" href="CSS/final-mystery-level1.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <h1>🧩 Level 4: Double Encryption Challenge 🧩</h1>
+  <div class="puzzle-container">
+    <p>Decrypt this message using Base64 first, then Caesar cipher (shift 3):</p>
+    <p><strong>U3F1YWFkIFBhcmsgYXQgTWlkbmlnaHQ=</strong></p>
+    <input type="text" id="level4Answer" placeholder="Enter your decrypted answer" />
+    <br />
+    <button onclick="checkLevel4Answer()">Submit Answer</button>
+    <button onclick="showLevel1Hint()">💡 Need a Hint?</button>    
+  </div>
+
+  <script src="Script/hint.js"></script>
+  <script src="Script/final-mystery-level1.js"></script>  
+
+</body>
+</html>

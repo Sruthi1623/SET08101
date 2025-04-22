@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Cipher: Mission Briefing</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #00ffcc;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #missionText {
+      max-width: 600px;
+      font-size: 1.2em;
+      border-left: 3px solid #00ffcc;
+      padding-left: 15px;
+      margin-bottom: 30px;
+      min-height: 150px;
+      white-space: pre-wrap;
+    }
+
+    .blinking-cursor {
+      font-weight: bold;
+      font-size: 1.3em;
+      color: #00ffcc;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    button {
+      background: #00ffcc;
+      color: #000;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #00ffaa;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🕵️‍♂️ Welcome, Agent Cipher</h1>
+
+  <div id="missionText"></div>
+
+  <button onclick="startMission()">Start Mission</button>
+
+  <script>
+    const briefing = [
+      "Decrypting mission briefing...",
+      "You are Agent Cipher, elite codebreaker of the Global Intelligence Agency.",
+      "A rogue group, The Cryptix, is planning a global cyber-attack.",
+      "Intercept encrypted messages, uncover hidden clues, and stop them.",
+      "Your mission begins now..."
+    ];
+
+    let lineIndex = 0;
+    let charIndex = 0;
+    let missionText = document.getElementById('missionText');
+    let cursor = document.createElement('span');
+    cursor.classList.add('blinking-cursor');
+    cursor.textContent = '|';
+    missionText.appendChild(cursor);
+
+    function typeWriter() {
+      if (lineIndex < briefing.length) {
+        if (charIndex < briefing[lineIndex].length) {
+          cursor.before(briefing[lineIndex].charAt(charIndex));
+          charIndex++;
+          setTimeout(typeWriter, 60); // Typing speed
+        } else {
+          missionText.insertBefore(document.createElement("br"), cursor);
+          lineIndex++;
+          charIndex = 0;
+          setTimeout(typeWriter, 500); // Delay before next line
+        }
+      }
+    }
+
+    window.onload = () => {
+      setTimeout(typeWriter, 500);
+    };
+
+    function startMission() {
+      Swal.fire('Good luck, Agent Cipher!').then(() => {
+        window.location.href = 'final-briefing-level1.html';
+      });
+    }
+  </script>
+</body>
+</html>

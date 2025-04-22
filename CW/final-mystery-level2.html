@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🧩 Final Mystery Level 2</title>
+  <link rel="stylesheet" href="CSS/final-mystery-level2.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <h1>🧩 Final Mystery Level 2: Final Cipher</h1>
+
+  <div class="puzzle-container">
+    <p>Decrypt this intercepted message (Base64):</p>
+    <p><strong id="cipherText">U1RPUCBUSEUgQVRUQUNL</strong></p>
+
+    <p><strong>🕒 Time Remaining: <span id="timer">180</span>s</strong></p>
+
+    <input type="text" id="answer2" placeholder="Enter decrypted message..." />
+    <br />
+    <button onclick="checkFinalAnswer()">Submit Final Answer</button>
+    <button onclick="showLevel2Hint()">💡 Need a Hint?</button>
+    
+
+  </div>
+
+  <script src="Script/hint.js"></script>
+  <script src="Script/final-mystery-level2.js"></script>
+  
+</body>
+</html>

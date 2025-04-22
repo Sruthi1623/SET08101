@@ -1,0 +1,36 @@
+body {
+    background-color: #0a0a0a;
+    color: #00ffcc;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .puzzle-container {
+    border: 2px solid #00ffcc;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #00ffcc;
+  }
+  
+  input {
+    padding: 10px;
+    width: 80%;
+    margin-top: 15px;
+    background: #000;
+    color: #00ffcc;
+    border: 1px solid #00ffcc;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #00ffcc;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  

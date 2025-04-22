@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | Spy Mission Game</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="CSS/Hero.css" />
+</head>
+<body>
+
+  <!-- Include Navbar -->
+  <div data-include="navbar.html"></div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Unlock the Secrets of the Spy World</h1>
+      <p>Your mission is about to begin. Get ready for an immersive experience that will take you deep into the world of espionage.</p>
+      <div class="hero-buttons">
+        <a href="intro.html" class="btn-yellow">Start your Mission</a>
+        <a href="#about-game" class="btn-link">About the Game →</a>
+      </div>
+    </div>
+
+    <!-- <div class="hero-footer">
+      <p>🕵️ Tip: Stay in the shadows, trust no one.</p>
+    </div> -->
+
+      <!-- Animated Tip -->
+  <div class="hero-footer">
+    <p><span class="typed-text"></span><span class="cursor">|</span></p>
+  </div>
+      
+  <script src="Script/Hero.js"></script>
+
+  </section>
+  
+
+  <!-- How to Play Section -->
+  <section class="how-to-play">
+    <h2>How to Play</h2>
+    <p>Dive into the captivating world of espionage and uncover the hidden truths that lie within. Sharpen your skills, outsmart your rivals, and become the ultimate secret agent in this immersive adventure.</p>
+    <div class="play-steps">
+      <button>Join the Agency</button>
+      <button>Decode the Clues</button>
+      <button>Complete Your Missions</button>
+    </div>
+  </section>
+
+  <!-- About the Game Section -->
+  <section class="about-game" id="about-game">
+    <h2>About the Game</h2>
+    <p>Discover the secrets of the spy world and embark on a thrilling journey filled with high-stakes challenges, cunning adversaries, and the ultimate test of your espionage skills.</p>
+    <div class="info-cards">
+      <div class="card">
+        <h3>Start your Mission</h3>
+        <p>Dive into the world of espionage and master the art of intelligence gathering, strategic planning, and swift action to overcome obstacles and emerge victorious.</p>
+      </div>
+      <div class="card yellow-card">
+        <h3>Difficulty</h3>
+        <p>Unlock new levels of challenge and complexity as you progress, pushing your spy skills to the limits and becoming the ultimate master of the spy world.</p>
+      </div>
+      <div class="card">
+        <h3>Rules</h3>
+        <p>Hone your spy skills, outmanoeuvre your rivals and uncover the hidden truths that lie within the shadows of the spy world.</p>
+      </div>
+      <div class="card green-card">
+        <h3>Coins</h3>
+        <p>Collect valuable resources, upgrade your equipment, and gain the edge you need to succeed in your espionage missions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Include Footer -->
+  <div data-include="footer.html"></div>
+
+  <!-- Include JS for Navbar & Footer -->
+  <script>
+    function includeHTML() {
+      const elements = document.querySelectorAll('[data-include]');
+      elements.forEach(el => {
+        const file = el.getAttribute('data-include');
+        fetch(file)
+          .then(response => response.text())
+          .then(data => {
+            el.innerHTML = data;
+          });
+      });
+    }
+    includeHTML();
+  </script>
+
+  <script src="home.js"></script>
+</body>
+</html>
