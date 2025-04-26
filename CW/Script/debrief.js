@@ -4,17 +4,23 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const time = localStorage.getItem(`timeTaken${level}`) || "--";
   const hints = localStorage.getItem(`hintsUsed${level}`) || "--";
-  const baseCoins = level === "Level2" ? 150 : 100;
 
-  let coins = baseCoins;
-  if (time !== "--") coins -= Math.floor(Number(time) / 5);
-  if (hints !== "--") coins -= Number(hints) * 5;
-  coins = Math.max(0, coins);
+  let baseCoins = 0;
+  if (level === "Level1") baseCoins = 100;
+  if (level === "Level2") baseCoins = 150;
 
-  localStorage.setItem(`coins${level}`, coins);
+  let coinsEarned = baseCoins;
+  if (time !== "--") coinsEarned -= Math.floor(Number(time) / 5);
+  if (hints !== "--") coinsEarned -= Number(hints) * 5;
+  coinsEarned = Math.max(0, coinsEarned);
 
+  // Save coins earned separately, do not overwrite main coin balance
+  localStorage.setItem(`coinsEarned${level}`, coinsEarned);
+
+  // Display
   document.getElementById("timeValue").textContent = `${time} seconds`;
   document.getElementById("hintValue").textContent = hints;
-  document.getElementById("coinValue").textContent = coins;
+  document.getElementById("coinValue").textContent = coinsEarned;
+
   updateCoinDisplay(level);
 });

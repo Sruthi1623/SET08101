@@ -4,12 +4,9 @@ let currentIndex = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
   if (!sessionStorage.getItem("finalTwistInitialized")) {
-    localStorage.setItem("hintsUsedFinalTwist", "0");
-    localStorage.setItem("timeTakenFinalTwist", "0");
-
-    const coinsL1 = Number(localStorage.getItem("coinsLevel1")) || 0;
-    const coinsL2 = Number(localStorage.getItem("coinsLevel2")) || 0;
-    const total = coinsL1 + coinsL2;
+    const l2Start = Number(localStorage.getItem("coinsLevel2")) || 0;
+    const l2Earned = Number(localStorage.getItem("coinsEarnedLevel2")) || 0;
+    const total = l2Start + l2Earned;
     localStorage.setItem("coinsFinalTwist", total.toString());
 
     sessionStorage.setItem("finalTwistInitialized", "true");
@@ -19,17 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
   blinkHint();
 });
 
-window.onload = () => {
-  blinkHint();
-};
-
-function showTwistHint() {
-  showHint([
-    "Click the nodes from left to right.",
-    "Only one sequence works — try tracing the signal logically.",
-    "Don't rush — wrong clicks will reset the trace!"
-  ], "FinalTwist");
-}
 
 function blinkHint() {
   const order = [0, 1, 2, 3];
@@ -58,11 +44,8 @@ function handleNodeClick(nodeIndex) {
       const twistTime = Math.floor((twistEnd - twistStart) / 1000);
       localStorage.setItem("timeTakenFinalTwist", twistTime);
 
-      setTimeout(() => {
-        document.getElementById('finalWinMessage').classList.remove('hidden');
-        Swal.fire("✅ Signal Traced", "The final mission is complete!", "success")
-          .then(() => window.location.href = "victory.html");
-      }, 500);
+      Swal.fire("✅ Signal Traced", "The final mission is complete!", "success")
+        .then(() => window.location.href = "victory.html");
     }
   } else {
     node.classList.add('error');

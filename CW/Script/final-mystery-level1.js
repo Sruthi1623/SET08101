@@ -1,20 +1,17 @@
 let startTime;
 
-// Reset stats and coins once at start
 document.addEventListener("DOMContentLoaded", () => {
   if (!sessionStorage.getItem("level1Initialized")) {
     localStorage.setItem("hintsUsedLevel1", "0");
     localStorage.setItem("timeTakenLevel1", "0");
-    initCoins("Level1", 100); 
+    localStorage.setItem("coinsLevel1", "100"); // base coins for hints
     sessionStorage.setItem("level1Initialized", "true");
   }
 
-  updateCoinDisplay("Level1"); 
+  updateCoinDisplay("Level1");
   startTime = Date.now();
 });
 
-
-// Hint pool for Level 1
 const level1Hints = [
   "The message is first encoded with Base64.",
   "After Base64, apply a Caesar cipher with shift 3.",
@@ -42,7 +39,7 @@ function checkLevel4Answer() {
 
     Swal.fire({
       icon: "success",
-      title: " Correct!",
+      title: "✅ Correct!",
       text: "Message decrypted successfully.",
       confirmButtonColor: "#00ffcc"
     }).then(() => {
@@ -51,7 +48,7 @@ function checkLevel4Answer() {
   } else {
     Swal.fire({
       icon: "error",
-      title: " Incorrect",
+      title: "❌ Incorrect",
       text: "Check both cipher layers carefully.",
       confirmButtonColor: "#ff4c4c"
     });

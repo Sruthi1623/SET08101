@@ -1,40 +1,31 @@
-// Load all saved values or fallback to safe defaults
-const time1  = Number(localStorage.getItem("timeTakenLevel1")) || 0;
-const time2  = Number(localStorage.getItem("timeTakenLevel2")) || 0;
+// Load stats
+const time1 = Number(localStorage.getItem("timeTakenLevel1")) || 0;
+const time2 = Number(localStorage.getItem("timeTakenLevel2")) || 0;
 const time3 = Number(localStorage.getItem("timeTakenFinalTwist")) || 0;
 
 const hint1 = Number(localStorage.getItem("hintsUsedLevel1")) || 0;
 const hint2 = Number(localStorage.getItem("hintsUsedLevel2")) || 0;
 const hint3 = Number(localStorage.getItem("hintsUsedFinalTwist")) || 0;
 
+// Coin earnings
+const earnedL1 = Number(localStorage.getItem("coinsEarnedLevel1")) || 0;
+const earnedL2 = Number(localStorage.getItem("coinsEarnedLevel2")) || 0;
+const earnedTwist = 250; // Always 250, bonus
 
-const coin1 = localStorage.getItem("coinsLevel1");
-const coin2 = localStorage.getItem("coinsLevel2");
-const coin3 = localStorage.getItem("coinsBonus");
-
-
-// Calculate totals
+// Total Time, Hints, Coins
 const totalTime = time1 + time2 + time3;
 const totalHints = hint1 + hint2 + hint3;
-
-const coinEarnedLevel1 = 100;
-const coinEarnedLevel2 = 150;
-const coinEarnedTwist  = 250;
-const coinsEarned = coinEarnedLevel1 + coinEarnedLevel2 + coinEarnedTwist;
-
-
-let coinsRemaining;
-if (coin1 && coin2 && coin3) {
-  coinsRemaining = Number(coin1) + Number(coin2) + Number(coin3);
-} else {
-  coinsRemaining = "--";
-}
+const coinsEarned = 100 + 150 + 250; // Max coins possible
+const coinsRemaining = earnedL1 + earnedL2 + earnedTwist;
 
 // Update DOM
-document.getElementById("timeTotal").textContent       = `${totalTime}`;
-document.getElementById("hintTotal").textContent       = totalHints;
-document.getElementById("coinsEarned").textContent     = `${coinsEarned} coins`;
-document.getElementById("coinsRemaining").textContent  = coinsRemaining !== "--" ? `${coinsRemaining} coins` : "--";
+document.getElementById("timeTotal").textContent = `${totalTime}`;
+document.getElementById("hintTotal").textContent = `${totalHints}`;
+document.getElementById("coinsEarned").textContent = `${coinsEarned} coins`;
+document.getElementById("coinsRemaining").textContent = `${coinsRemaining} coins`;
+
+document.getElementById("earnedL1").textContent = earnedL1;
+document.getElementById("earnedL2").textContent = earnedL2;
 
 // Rank logic
 let rank = "Field Agent";
@@ -45,7 +36,7 @@ if (totalHints <= 2 && totalTime <= 240) {
 }
 document.getElementById("rank").textContent = rank;
 
-// Confetti + SweetAlert before revealing container
+// Show SweetAlert and reveal
 window.onload = () => {
   confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
 

@@ -2,21 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Final Mission Briefing</title>
   <link rel="stylesheet" href="CSS/final-breafing-level2.css" />
+  <link rel="stylesheet" href="CSS/coin.css" />
 </head>
+
 <body>
-
   <div class="briefing-box">
-
-<div class="coin-bar">🪙 Coins Available: <span id="coinDisplay">--</span></div>
-<script src="Script/coins.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    updateCoinDisplay("Level2");
-  });
-</script>
+    <div class="coin-bar">🪙 Coins: <span id="coinDisplay">--</span></div>
 
     <h1>🕵️‍♂️ Final Mission Briefing</h1>
 
@@ -25,15 +19,27 @@
     <div class="message">
       <p>The <strong>Cryptix network</strong> is collapsing.</p>
       <p>A final transmission has just been intercepted.</p>
-      <p class="objective">
-        <strong>Your objective:</strong> Decode the message and stop the attack before it’s too late.
-      </p>
+      <p class="objective"><strong>Your objective:</strong> Decode the message and stop the attack before it’s too late.</p>
     </div>
 
-    <p class="timer">⏱️ <span>Time Limit:</span> 180 seconds</p>
+    <p class="timer">⏱️ Time Limit: 180 seconds</p>
 
     <a href="final-mystery-level2.html" class="start-btn">🧩 Begin Final Cipher</a>
   </div>
 
-</body>
-</html>
+  <script src="Script/coins.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (!localStorage.getItem("coinsLevel2")) {
+        const leftoverBase = Number(localStorage.getItem("coinsLevel1")) || 0;
+        const earnedL1 = Number(localStorage.getItem("coinsEarnedLevel1")) || 0;
+  
+        const totalForL2 = leftoverBase + earnedL1;
+  
+        localStorage.setItem("coinsLevel2", totalForL2.toString());
+      }
+  
+      updateCoinDisplay("Level2"); 
+    });
+  </script>
+  

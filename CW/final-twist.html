@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Final Twist: Node Trace</title>
+  <title>Final Twist: Signal Trace</title>
   <link rel="stylesheet" href="CSS/final-twist.css" />
   <link rel="stylesheet" href="CSS/coin.css" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
   <div class="terminal">
-  <div class="coin-bar">🪙 Coins: <span id="coinDisplay">--</span></div>
+    <div class="coin-bar">🪙 Coins: <span id="coinDisplay">--</span></div>
+
     <h1>🛰️ Final Twist: Signal Trace</h1>
 
     <div id="twistWarning">
@@ -18,25 +20,23 @@
       <p class="alert-sub">Click the nodes in the correct order to complete the trace.</p>
     </div>
 
-    <p class="summary">🛰️ Final Twist Time: <strong id="bonusTime">--</strong> seconds</p>
-
     <div id="bonusNodes" class="node-map">
       <div class="node" id="bnode1" onclick="handleNodeClick(0)"></div>
       <div class="node" id="bnode2" onclick="handleNodeClick(1)"></div>
       <div class="node" id="bnode3" onclick="handleNodeClick(2)"></div>
       <div class="node" id="bnode4" onclick="handleNodeClick(3)"></div>
     </div>
+
     <p class="hint-text">💾 Agent Hint: The signal follows a left-to-right trace pattern...</p>
 
     <p id="finalWinMessage" class="final-message hidden">✅ Signal traced. Intel uploaded to HQ. Well done, Agent Cipher.</p>
-    
+
     <button onclick="showTwistHint()" class="hint-btn">💡 Need a Hint?</button>
     <button id="restartBtn" class="hidden" onclick="resetNodes()">🔁 Restart Trace</button>
   </div>
-  
+
   <script src="Script/coins.js"></script>
   <script src="Script/hint.js"></script>
   <script src="Script/final-twist.js"></script>
-
 </body>
 </html>
