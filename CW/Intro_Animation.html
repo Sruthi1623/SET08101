@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agent Cipher: Mission Briefing</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="intro-container">
+    <h1 class="typing-animation">Welcome, Agent Cipher</h1>
+    <p class="mission-text">Decrypting mission briefing...</p>
+    <div class="loader"></div>
+    <p class="mission-details hidden">
+      A rogue cyber-crime group, <strong>The Cryptix</strong>, is planning a massive attack.<br>
+      Your mission is to intercept, decode, and stop the attack before time runs out.<br><br>
+      Good luck, Agent.
+    </p>
+    <button class="start-button hidden" onclick="startMission()">Start Mission</button>
+  </div>
+
+  <script>
+    // Simple animation timing control
+    setTimeout(() => {
+      document.querySelector('.loader').style.display = 'none';
+      document.querySelector('.mission-details').classList.remove('hidden');
+      document.querySelector('.start-button').classList.remove('hidden');
+    }, 3000); // 3-second loading time
+
+    function startMission() {
+      window.location.href = 'level1.html'; // Update this to your actual Level 1 page
+    }
+  </script>
+</body>
+</html>

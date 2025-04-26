@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mission Complete</title>
+  <link rel="stylesheet" href="CSS/victory.css" />
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <div class="victory-container">
+    <h1>🎉 Mission Complete</h1>
+    <p class="main-line">Agent Cipher, the world is safe again.</p>
+
+    <p class="summary">🧩 Puzzles Solved: <strong>6 of 6</strong></p>
+    <p class="summary">⏱️ Total Time Taken: <strong id="timeTotal">--</strong> seconds</p>
+    <p class="summary">💡 Total Hints Used: <strong id="hintTotal">--</strong></p>
+    <p class="summary">🪙 Coins Earned (Total Possible): <strong id="coinsEarned">--</strong></p>
+    <p class="summary">💰 Coins Remaining (After Hints): <strong id="coinsRemaining">--</strong></p>
+    <p class="summary">🎖️ Rank: <strong id="rank">--</strong></p>
+    
+    <details class="summary">
+      <summary>🧾 Coin Breakdown</summary>
+      <ul>
+        <li>🔐 Level 1 Earned: <strong id="earnedL1">--</strong> coins</li>
+        <li>🔓 Level 2 Earned: <strong id="earnedL2">--</strong> coins</li>
+        <li>🛰️ Final Twist Bonus: <strong>250</strong> coins</li>
+      </ul>
+    </details>
+    
+
+    <div class="victory-actions">
+      <a href="index.html" class="btn">🔁 Play Again</a>
+      <a href="freestyle.html" class="btn">🧪 Try Freestyle Mode</a>
+    </div>
+  </div>
+
+  <script src="Script/victory.js"></script>
+</body>
+</html>

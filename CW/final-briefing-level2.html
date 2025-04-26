@@ -3,21 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mission Briefing – Final Cipher</title>
+  <title>Final Mission Briefing</title>
   <link rel="stylesheet" href="CSS/final-breafing-level2.css" />
 </head>
 <body>
 
-  <div class="briefing-container">
-    <h1>🕵️ Final Mission Briefing</h1>
-    <p class="intro">Partial intel has been decrypted, Agent Cipher.</p>
-    <p class="description">
-      The Cryptix network is collapsing. A final transmission has been intercepted.<br>
-      Your objective: decode the message and stop the attack before it's too late.
-    </p>
-    <p class="timer-info">⏱️ Time Limit: 180 seconds</p>
-    
-    <a href="final-mystery-level2.html" class="begin-btn">🔓 Begin Final Cipher</a>
+  <div class="briefing-box">
+
+<div class="coin-bar">🪙 Coins Available: <span id="coinDisplay">--</span></div>
+<script src="Script/coins.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    updateCoinDisplay("Level2");
+  });
+</script>
+
+    <h1>🕵️‍♂️ Final Mission Briefing</h1>
+
+    <p class="subheading">🔓 Partial intel has been decrypted, Agent Cipher.</p>
+
+    <div class="message">
+      <p>The <strong>Cryptix network</strong> is collapsing.</p>
+      <p>A final transmission has just been intercepted.</p>
+      <p class="objective">
+        <strong>Your objective:</strong> Decode the message and stop the attack before it’s too late.
+      </p>
+    </div>
+
+    <p class="timer">⏱️ <span>Time Limit:</span> 180 seconds</p>
+
+    <a href="final-mystery-level2.html" class="start-btn">🧩 Begin Final Cipher</a>
   </div>
 
 </body>

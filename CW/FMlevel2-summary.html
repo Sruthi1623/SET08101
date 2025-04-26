@@ -5,20 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mission Debrief: Level 2</title>
   <link rel="stylesheet" href="CSS/debrief.css" />
+  <link rel="stylesheet" href="CSS/coin.css" />
 </head>
 <body>
-  <div class="victory-container">
+  <div class="debrief-container">
+  <div class="coin-bar">🪙 Coins: <span id="coinDisplay">--</span></div>
     <h1>📄 Mission Debrief: Level 2</h1>
-    <p class="main-line"><em>Final Cipher successfully decoded.</em></p>
-
-    <p class="summary">⏱ Time Taken: <span id="timeValue">--</span></p>
-    <p class="summary">💡 Hints Used: <span id="hintValue">--</span></p>
-    <p class="summary">🪙 Coins Earned: <span id="coinValue">--</span></p>
-
-    <a href="final-twist.html" class="btn">➡️ Proceed to Final Twist</a>
-    <a href="index.html" class="btn">🏠 Return to HQ</a>
+    <p class="description"><em>Final Cipher successfully decoded.</em></p>
+  
+    <div class="stats">
+      <p>⏱ Time Taken: <strong id="timeValue">--</strong></p>
+      <p>💡 Hints Used: <strong id="hintValue">--</strong></p>
+      <p>🪙 Coins Earned: <strong id="coinValue">--</strong></p>
+    </div>
+  
+    <div class="buttons">
+      <a href="index.html" class="btn">🏠 Return to HQ</a>
+    </div>
   </div>
   
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="Script/coins.js"></script>
+  <script src="Script/surprise-twist.js"></script>
   <script src="Script/debrief.js"></script>
+  
 </body>
 </html>

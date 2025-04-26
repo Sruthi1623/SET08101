@@ -1,13 +1,21 @@
-// final-mystery-level2.js
+let timeLeft = 180;
+let interval;
 
-let timeLeft = 180, interval;
-
-// reset & start the countdown
 document.addEventListener("DOMContentLoaded", () => {
-  localStorage.setItem("hintsUsedLevel2",  "0");
-  localStorage.setItem("timeTakenLevel2", "0");
+  if (!sessionStorage.getItem("level2Initialized")) {
+    localStorage.setItem("hintsUsedLevel2", "0");
+    localStorage.setItem("timeTakenLevel2", "0");
+
+    const earnedFromLevel1 = Number(localStorage.getItem("coinsLevel1")) || 0;
+    localStorage.setItem("coinsLevel2Available", earnedFromLevel1.toString());
+    sessionStorage.setItem("level2Initialized", "true");
+  }
+
+  updateCoinDisplay("Level2Available");
 
   const timerSpan = document.getElementById("timer");
+  timerSpan.textContent = timeLeft;
+
   interval = setInterval(() => {
     timeLeft--;
     timerSpan.textContent = timeLeft;
@@ -19,28 +27,35 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 1000);
 });
 
-// your hint pool
 const level2Hints = [
-  "It's Base64 – use a decoder first.",
-  "Decoded message might have obvious keywords like 'attack'.",
-  "Copy the encoded string into a decoder to verify."
+  "It's Base64 – use a Base64 decoder first.",
+  "Decoded text often contains words like 'STOP' or 'ATTACK'.",
+  "Try pasting the string into an online Base64 tool."
 ];
 
-// called by “Need a Hint?”
 function showLevel2Hint() {
-  showHint(level2Hints, "Level2");
+  showHint(level2Hints, "Level2Available");
 }
 
-// called by “Submit Final Answer”
 function checkFinalAnswer() {
-  const input       = document.getElementById("answer2").value.trim().toUpperCase();
-  const correct     = "STOP THE ATTACK";
-  const hintsUsed   = Number(localStorage.getItem("hintsUsedLevel2")) || 0;
+  const input = document.getElementById("answer2").value.trim().toUpperCase();
+  const correct = "STOP THE ATTACK";
+  const usedHints = Number(localStorage.getItem("hintsUsedLevel2")) || 0;
 
   if (input === correct) {
     clearInterval(interval);
-    localStorage.setItem("timeTakenLevel2", 180 - timeLeft);
-    localStorage.setItem("hintsUsedLevel2", hintsUsed);
+    const timeTaken = 180 - timeLeft;
+
+    let earned = 150 - Math.floor(timeTaken / 5) - (usedHints * 5);
+    earned = Math.max(0, earned);
+    localStorage.setItem("coinsLevel2", earned.toString());
+
+    localStorage.setItem("timeTakenLevel2", timeTaken.toString());
+    localStorage.setItem("hintsUsedLevel2", usedHints.toString());
+    localStorage.setItem("finalCipherSolved", "true");
+
+    const fromL1 = Number(localStorage.getItem("coinsLevel1")) || 0;
+    localStorage.setItem("coinsFinalTwist", (fromL1 + earned).toString());
 
     Swal.fire("✅ Correct!", "Message decrypted. Stand by...", "success")
       .then(() => window.location.href = "FMlevel2-summary.html");

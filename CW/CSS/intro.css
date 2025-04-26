@@ -1,0 +1,69 @@
+body {
+    background-color: #0a0a0a;
+    color: #00ffcc;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  #missionText {
+    max-width: 600px;
+    font-size: 1.2em;
+    border-left: 3px solid #00ffcc;
+    padding-left: 15px;
+    margin-bottom: 30px;
+    min-height: 150px;
+    white-space: pre-wrap;
+  }
+  
+  .blinking-cursor {
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #00ffcc;
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  button {
+    background: #00ffcc;
+    color: #000;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: #00ffaa;
+  }
+  
+  .back-to-hq {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 24px;
+    background-color: transparent;
+    color: #00ffcc;
+    border: 2px solid #00ffcc;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .back-to-hq:hover {
+    background-color: #00ffcc;
+    color: #000;
+  }
+  
