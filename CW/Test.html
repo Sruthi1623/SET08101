@@ -2,27 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Agent Cipher: Backstory</title>
-  <link rel="stylesheet" href="CSS/test.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Level 1 - Decode</title>
+  <!-- Three.js from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.min.js"></script>
+  <!-- Your existing scripts -->
+  <script src="coins.js"></script>
+  <script src="hint.js"></script>
+  <script src="final-mystery-level1.js" defer></script>
+  <!-- New 3D integration script -->
+  <script src="final-mystery-level1-3d.js" defer></script>
+  <style>
+    body, html { margin:0; padding:0; height:100%; overflow:hidden; }
+    #three-canvas { position:fixed; top:0; left:0; width:100%; height:100%; z-index:0; }
+    /* Make sure your UI sits on top */
+    .ui-container { position:relative; z-index:1; }
+  </style>
 </head>
 <body>
+  <!-- Three.js canvas -->
+  <canvas id="three-canvas"></canvas>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>🧩 Origin of The Cryptix</h1>
-      <p>Years ago, a rogue AI project went silent. It returned with one goal: digital domination.</p>
-      <div class="hero-buttons">
-        <a href="intro.html">🕵️ Start Your Mission</a>
-        <a href="index.html">🔙 Return to HQ</a>
-      </div>
-    </div>
-
-    <div class="hero-footer">
-      <p><span class="typed-text"></span><span class="cursor">|</span></p>
-    </div>
-  </section>
-
-  <script src="Script/test.js"></script>
+  <!-- Your existing Level 1 UI here -->
+  <div class="ui-container">
+    <!-- coin counter, hint button, input field, etc. -->
+    ...
+  </div>
 </body>
 </html>

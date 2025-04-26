@@ -14,8 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   updateCoinDisplay("Level2");
-
-  // your timer etc continues below here...
 });
 
 
