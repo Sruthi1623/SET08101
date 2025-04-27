@@ -4,16 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Final Mission Briefing</title>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.min.js"></script>
   <link rel="stylesheet" href="CSS/final-breafing-level2.css" />
   <link rel="stylesheet" href="CSS/coin.css" />
+  <script src="Script/three-animations.js" defer></script>
 </head>
-
 <body>
-  <div class="briefing-box">
+  <canvas id="three-briefing-canvas"
+          style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;"></canvas>
+
+  <div class="briefing-box" style="position:relative;z-index:1;">
     <div class="coin-bar">🪙 Coins: <span id="coinDisplay">--</span></div>
 
     <h1>🕵️‍♂️ Final Mission Briefing</h1>
-
     <p class="subheading">🔓 Partial intel has been decrypted, Agent Cipher.</p>
 
     <div class="message">
@@ -23,7 +26,6 @@
     </div>
 
     <p class="timer">⏱️ Time Limit: 180 seconds</p>
-
     <a href="final-mystery-level2.html" class="start-btn">🧩 Begin Final Cipher</a>
   </div>
 
@@ -33,13 +35,10 @@
       if (!localStorage.getItem("coinsLevel2")) {
         const leftoverBase = Number(localStorage.getItem("coinsLevel1")) || 0;
         const earnedL1 = Number(localStorage.getItem("coinsEarnedLevel1")) || 0;
-  
-        const totalForL2 = leftoverBase + earnedL1;
-  
-        localStorage.setItem("coinsLevel2", totalForL2.toString());
+        localStorage.setItem("coinsLevel2", (leftoverBase + earnedL1).toString());
       }
-  
       updateCoinDisplay("Level2"); 
     });
   </script>
-  
+</body>
+</html>

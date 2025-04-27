@@ -16,6 +16,25 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCoinDisplay("Level2");
 });
 
+// Set up countdown timer
+const timerEl = document.getElementById("timer");
+timerEl.textContent = timeLeft;
+interval = setInterval(() => {
+  timeLeft--;
+  timerEl.textContent = timeLeft;
+  if (timeLeft <= 0) {
+    clearInterval(interval);
+    Swal.fire({
+      icon: "error",
+      title: "⏱ Time's Up!",
+      text: "You failed to stop the attack in time.",
+      confirmButtonColor: "#ff4c4c"
+    }).then(() => {
+      window.location.reload();
+    });
+  }
+}, 1000);
+
 
 const level2Hints = [
   "It's Base64 – use a Base64 decoder first.",

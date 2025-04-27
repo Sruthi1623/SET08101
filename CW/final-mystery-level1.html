@@ -3,30 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Double Encryption Challenge</title>
+  <title> Double Encryption</title>
   <link rel="stylesheet" href="CSS/final-mystery-level1.css" />
   <link rel="stylesheet" href="CSS/coin.css" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- in index.html & each level HTML -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
   <div class="coin-bar">🪙 Coins: <span id="coinDisplay">--</span></div>
-
   <h1>🧩 Level 4: Double Encryption Challenge 🧩</h1>
 
   <div class="puzzle-container">
     <p>Decrypt this message using Base64 first, then Caesar cipher (shift 3):</p>
     <p><strong>U3F1YWFkIFBhcmsgYXQgTWlkbmlnaHQ=</strong></p>
-
     <input type="text" id="level4Answer" placeholder="Enter your decrypted answer" />
-    <br/>
+    <br />
 
-    <button onclick="checkLevel4Answer()" class="btn">Submit Answer</button>
-    <button onclick="showLevel1Hint()" class="hint-btn">💡 Need a Hint?</button>
+    
+<!-- in final-mystery-level1.html, inside your puzzle container -->
+<button onclick="checkLevel4Answer()" class="btn">Submit Answer</button>
+<button onclick="showLevel1Hint()"          class="hint-btn">💡 Need a Hint?</button>
+
   </div>
 
   <script src="Script/coins.js"></script>
   <script src="Script/hint.js"></script>
   <script src="Script/final-mystery-level1.js"></script>
+
 </body>
 </html>

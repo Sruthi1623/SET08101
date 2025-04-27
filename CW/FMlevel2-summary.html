@@ -1,33 +1,38 @@
+<!-- Debrief Level 2 HTML (e.g. final-mystery-level2-debrief.html) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mission Debrief: Level 2</title>
+  <title>📄 Mission Debrief: Level 2</title>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.min.js"></script>
   <link rel="stylesheet" href="CSS/debrief.css" />
   <link rel="stylesheet" href="CSS/coin.css" />
+  <script src="Script/three-animations.js" defer></script>
 </head>
 <body>
-  <div class="debrief-container">
+  <canvas id="three-debrief-canvas"
+          style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;"></canvas>
+
+  <div class="debrief-container" style="position:relative;z-index:1;">
     <div class="coin-bar">🪙 Coins: <span id="coinDisplay">--</span></div>
     <h1>📄 Mission Debrief: Level 2</h1>
     <p class="description"><em>Final Cipher successfully decoded.</em></p>
-  
+
     <div class="stats">
       <p>⏱ Time Taken: <strong id="timeValue">--</strong></p>
       <p>💡 Hints Used: <strong id="hintValue">--</strong></p>
       <p>🪙 Coins Earned: <strong id="coinValue">--</strong></p>
     </div>
-  
-    <div class="buttons">
+
+    <div class="buttons" style="margin-top:30px;">
       <a href="index.html" class="btn">🏠 Return to HQ</a>
     </div>
   </div>
-  
+
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="Script/coins.js"></script>
   <script src="Script/surprise-twist.js"></script>
   <script src="Script/debrief.js"></script>
-  
 </body>
 </html>

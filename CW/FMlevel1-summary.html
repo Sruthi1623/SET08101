@@ -1,33 +1,37 @@
+<!-- Debrief Level 1 HTML (e.g. final-mystery-level1-debrief.html) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>🧾 Mission Debrief: Level 1</title>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.min.js"></script>
   <link rel="stylesheet" href="CSS/debrief.css" />
   <link rel="stylesheet" href="CSS/coin.css" />
+  <script src="Script/three-animations.js" defer></script>
 </head>
 <body>
-  <div class="debrief-container">
-    <div class="coin-bar">🪙 Coins: <span id="coinDisplay">--</span></div>
+  <canvas id="three-debrief-canvas"
+          style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;"></canvas>
 
+  <div class="debrief-container" style="position:relative;z-index:1;">
+    <div class="coin-bar">🪙 Coins: <span id="coinDisplay">--</span></div>
     <h1>📋 Mission Debrief: Level 1</h1>
     <p class="description">Caesar Cipher successfully decoded.</p>
 
     <div class="stats">
-        <p class="summary">⏱ Time Taken: <span id="timeValue">--</span></p>
-        <p class="summary">💡 Hints Used: <span id="hintValue">--</span></p>
-        <p class="summary">🪙 Coins Earned: <span id="coinValue">--</span></p>        
+      <p class="summary">⏱ Time Taken: <span id="timeValue">--</span></p>
+      <p class="summary">💡 Hints Used: <span id="hintValue">--</span></p>
+      <p class="summary">🪙 Coins Earned: <span id="coinValue">--</span></p>
     </div>
 
-    <div class="buttons">
+    <div class="buttons" style="margin-top:30px;">
       <a href="final-briefing-level2.html" class="btn">➡️ Proceed to Next Briefing</a>
       <a href="index.html" class="btn">🏠 Return to HQ</a>
     </div>
   </div>
-  
+
   <script src="Script/coins.js"></script>
   <script src="Script/debrief.js"></script>
-  
 </body>
 </html>

@@ -4,15 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Final Mystery Briefing</title>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.min.js"></script>
   <link rel="stylesheet" href="CSS/final-briefing-level1.css" />
+  <script src="Script/three-animations.js" defer></script>
 </head>
 <body>
+  <canvas id="three-briefing-canvas"
+          style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;"></canvas>
 
-  <div class="bg-overlay"></div>
+  <div class="bg-overlay" style="position:relative;z-index:1;"></div>
+  <p class="blinking-text" style="position:relative;z-index:1;">
+    CLASSIFIED TRANSMISSION RECEIVED...
+  </p>
 
-  <p class="blinking-text">CLASSIFIED TRANSMISSION RECEIVED...</p>
-
-  <div class="briefing-box">
+  <div class="briefing-box" style="position:relative;z-index:1;">
     <h2>🧩 Final Mystery – Mission Briefing</h2>
     <p>Agent Cipher, your assignment is to decode multiple encrypted messages to intercept a major attack by the Cryptix Network.</p>
 
@@ -29,25 +34,19 @@
     <p class="warning-text">This mission is time-sensitive. Trust no one. Work fast. Think sharp.</p>
   </div>
 
-  <div class="start-btn-container">
+  <div class="start-btn-container" style="position:relative;z-index:1;">
     <a href="#" class="start-mission-btn" onclick="beginMission()">🕵️ Accept Mission</a>
     <a href="index.html" class="back-btn">🔙 Return to HQ</a>
   </div>  
 
   <script>
     function beginMission() {
-      // Reset coin and hint stats ONLY when starting the mission
       localStorage.setItem("coinsLevel1", "100");
       localStorage.setItem("hintsUsedLevel1", "0");
       localStorage.setItem("timeTakenLevel1", "0");
-
-      // Clear session so it resets properly in the level JS
       sessionStorage.removeItem("level1Initialized");
-
-      // Start game
       window.location.href = "final-mystery-level1.html";
     }
   </script>
-
 </body>
 </html>

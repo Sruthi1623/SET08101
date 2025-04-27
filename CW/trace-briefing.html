@@ -1,32 +1,37 @@
+<!-- trace-briefing.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Signal Intercept: Final Twist</title>
+  <title>🛰️ Signal Intercept: Emergency Briefing</title>
   <link rel="stylesheet" href="CSS/trace-briefing.css" />
   <link rel="stylesheet" href="CSS/coin.css" />
-
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+  <script src="Script/coins.js"></script>
 </head>
 <body>
   <div class="briefing-box">
+    <!-- show total coins carried into the twist (L2 remaining + L2 earned) -->
     <div class="coin-bar">🪙 Coins: <span id="coinDisplay">--</span></div>
-    <script src="Script/coins.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        // compute coinsFinalTwist = coinsLevel2 (remaining) + coinsEarnedLevel2
+        const l2Remaining = Number(localStorage.getItem("coinsLevel2")) || 0;
+        const l2Earned    = Number(localStorage.getItem("coinsEarnedLevel2")) || 0;
+        const total       = l2Remaining + l2Earned;
+        localStorage.setItem("coinsFinalTwist", total.toString());
+        // display that total
         updateCoinDisplay("FinalTwist");
       });
     </script>
+
     <h1>🛰️ Signal Intercept: Emergency Briefing</h1>
     <p><strong>Agent Cipher</strong>, your final decryption triggered a hidden protocol.</p>
     <p>A rogue signal has emerged — it's their last attempt to erase evidence.</p>
     <p class="warning">🚨 You must manually trace the signal to complete the mission.</p>
 
     <a href="final-twist.html" class="btn-trace">📡 Begin Signal Trace</a>
-    <script src="Script/coins.js"></script>
-
   </div>
 </body>
 </html>
